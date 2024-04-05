@@ -1,0 +1,36 @@
+const mongoose=require("mongoose")
+const liveStreamSchema=new mongoose.Schema({
+   instructorId:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"Instructor",
+   },
+   title:{
+    type:String,
+    trim:true,
+    required:true,
+   },
+   description:{
+    type:String,
+    trim:true,
+    required:true,
+   },
+   scheduleTime:{
+    type:String,
+    trim:true,
+    required:true,
+   },
+   scheduleDate:{
+    type:Date,
+    time:true,
+    required:true,
+   },
+   status:{
+    type:String,
+    enum:["upcomming","live","ended"],
+   },
+   createdAt:{
+    type:Date,
+    default:Date.now,
+   }
+});
+module.exports=mongoose.model("LiveStreaming",liveStreamSchema);

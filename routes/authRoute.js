@@ -1,0 +1,13 @@
+const express=require('express');
+const authRoute=express.Router();
+const {handelSignUp,handelLogin,handelSendOtp,handelStudentInfo,handelInstructorInfo}=require("../controllers/auth");
+const {handelResetPasswordToken,handelResetPassword}=require("../controllers/forgetPassword");
+const {isAuth}=require("../middlewares/auth_middleware");
+authRoute.post("/signup",handelSignUp); 
+authRoute.post("/login",handelLogin);
+authRoute.post("/sendotp",handelSendOtp);
+authRoute.post("/reset-password-token",handelResetPasswordToken);
+authRoute.post("/update-password",handelResetPassword);
+authRoute.post("/student-info",handelStudentInfo);
+authRoute.post("/instructor-info",handelInstructorInfo);
+module.exports=authRoute;

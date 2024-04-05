@@ -1,0 +1,33 @@
+const mongoose=require("mongoose")
+const adminSchema=new mongoose.Schema({
+   firstName:{
+    type:String,
+    trim:true,
+    required:true,
+   },
+   lastName:{
+    type:String,
+    trim:true,
+   },
+   email:{
+    type:String,
+    trim:true,
+    required:true,
+   },
+   password:{
+    type:String,
+    trim:true,
+    required:true,
+   },
+   profile:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"Profile",
+   },
+   fibt:{
+    type:String,
+   },
+   subjectSpecification:{
+    type:String,
+   }
+})
+module.exports=mongoose.model("Admin",adminSchema);
